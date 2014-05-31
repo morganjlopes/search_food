@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def _ensure_user_can_edit(model)
-    unless model.users.where(:id => current_user.id).present?
+    unless model.users.where(:id => current_user.id).present? or current_user.is_admin
       raise "You don't have permission"
     end
   end
