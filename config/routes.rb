@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+SearchFood::Application.routes.draw do
 
   devise_for :users
 
