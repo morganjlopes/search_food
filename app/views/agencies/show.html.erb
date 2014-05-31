@@ -16,7 +16,7 @@
         <div class="agency_logo"><%= image_tag("#{@agency.photo}") %></div>
       </div>
       <div class="col-sm-9">
-        <h1 class="agency_name"><%= @agency.name %></h1>
+        <h1 class="agency_name_heading"><%= @agency.name %></h1>
         <span class="agency_address">
           <%= @agency.address.street_line_1 %> <%= @agency.address.street_line_2 %><br>
           <%= @agency.address.city %>,  <%= @agency.address.state %> <%= @agency.address.zip %>
