@@ -1,5 +1,6 @@
 <%= simple_form_for(@agency) do |f| %>
   <div class="form_wrapper">
+    <%= f.error_notification %>
     <%= f.input :name %>
       <div id="address_section">
         <%= f.association :address do |a| %>
@@ -18,13 +19,13 @@
           </div>
         <% end %>
       </div>
+      <%= f.association :services,   as: :check_boxes %>
 
       <%= f.input :restrictions %>
       <%= f.input :hours_of_operation %>
       <%= f.input :contact_name %>
       <%= f.input :contact_phone %>
       <%= f.input :contact_email %>
-      <%= f.input :services, collection: (Agency.services) %>
       <%= f.input :geographic_restrictions %>
       <%= f.input :family_stipulations %>
       <%= f.input :faith_based %>

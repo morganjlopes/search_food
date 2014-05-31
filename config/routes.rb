@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :services
+
   resources :agencies do
     resources :volunteers
   end

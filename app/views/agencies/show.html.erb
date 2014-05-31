@@ -36,7 +36,7 @@
 
 <p>
   <strong>Services:</strong>
-  <%= @agency.services %>
+  <%= @agency.services.map {|s| s.name}.join(", ") %>
 </p>
 
 <p>

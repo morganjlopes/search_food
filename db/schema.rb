@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531120207) do
+ActiveRecord::Schema.define(version: 20140531122259) do
 
   create_table "addresses", force: true do |t|
     t.string   "street_line_1"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20140531120207) do
     t.string   "name"
   end
 
+  create_table "agent_services", force: true do |t|
+    t.integer  "agency_id"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -57,6 +64,13 @@ ActiveRecord::Schema.define(version: 20140531120207) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "services", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "volunteers", force: true do |t|
     t.string   "name"

@@ -30,6 +30,7 @@ class AgenciesController < ApplicationController
 
     respond_to do |format|
       if @agency.save
+        AdminMailer.new_agency(@agency).deliver
         format.html { redirect_to @agency, notice: 'Agency was successfully created.' }
         format.json { render :show, status: :created, location: @agency }
       else
@@ -44,7 +45,6 @@ class AgenciesController < ApplicationController
   def update
     respond_to do |format|
       if @agency.update(agency_params)
-        AdminMailer.new_agency(@agency).deliver
         format.html { redirect_to @agency, notice: 'Agency was successfully updated.' }
         format.json { render :show, status: :ok, location: @agency }
       else
@@ -85,6 +85,7 @@ class AgenciesController < ApplicationController
                                      :faith_based,
                                      :is_active,
                                      :general_information,
+                                     { :service_ids => [] },
                                      address_attributes: [:id, :street_line_1, :street_line_2, :city, :state, :zip])
     end
 end
