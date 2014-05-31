@@ -21,20 +21,24 @@
       </div>
       <div class="col-sm-6">
         <table class="full_width">
-          <% @agencies.last(4).each do |agency| %>
-            <tr>
-              <td>
-                <%= link_to agency_path(agency) do %>
-                  <div class="agency_search_result">
-                    <h2><%= agency.name %></h2>
-                    <%= agency.address.street_line_1 %>
-                    <%= agency.address.street_line_2 if agency.address.street_line_2 %><br>
-                    <%= agency.address.city %>, <%= agency.address.state %> <%= agency.address.zip %><br>
-                    <strong>Phone</strong> <%= agency.contact_phone %>
-                  </div>
-                <% end %>
-              </td>
-            </tr>
+          <% if @agencies.count > 0 %>
+            <% @agencies.last(4).each do |agency| %>
+              <tr>
+                <td>
+                  <%= link_to agency_path(agency) do %>
+                    <div class="agency_search_result">
+                      <h2><%= agency.name %></h2>
+                      <%= agency.address.street_line_1 %>
+                      <%= agency.address.street_line_2 if agency.address.street_line_2 %><br>
+                      <%= agency.address.city %>, <%= agency.address.state %> <%= agency.address.zip %><br>
+                      <strong>Phone</strong> <%= agency.contact_phone %>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <h4 class="text-center">There are no Agencies within your zipcode,<br>please try another.</h4>
           <% end %>
         </table>
       </div>
