@@ -1,6 +1,9 @@
 <%= simple_form_for(@agency) do |f| %>
   <div class="form_wrapper">
     <%= f.error_notification %>
+    <% if current_user.is_admin %>
+      <%= f.input :agycode, :label => "Agency Code" %>  
+    <% end %>
     <%= f.input :name %>
       <div id="address_section">
         <%= f.association :address do |a| %>

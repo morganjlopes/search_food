@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140531134702) do
     t.datetime "updated_at"
     t.string   "slug"
     t.string   "name"
+    t.string   "agycode"
   end
 
   create_table "agent_services", force: true do |t|
