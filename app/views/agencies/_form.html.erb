@@ -1,8 +1,8 @@
 <%= simple_form_for(@agency) do |f| %>
 
+  <%= f.input :name %>
   <div id="address_section">
     <%= f.association :address do |a| %>
-      <%= a.input :name %>
       <%= a.input :street_line_1, :placeholder => "123 Main Street" %>
       <%= a.input :street_line_2 %>
       <%= a.input :city, :placeholder => "Atlanta" %>
@@ -26,5 +26,5 @@
   <div class="actions">
     <%= f.submit :class => "btn btn-primary" %>
   </div>
-  
+
 <% end %>
