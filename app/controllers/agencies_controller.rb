@@ -15,6 +15,8 @@ class AgenciesController < ApplicationController
   # GET /agencies/new
   def new
     @agency = Agency.new
+    @agency.build_address
+    @agency.address.state = "GA"
   end
 
   # GET /agencies/1/edit
@@ -69,6 +71,19 @@ class AgenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agency_params
-      params.require(:agency).permit(:frequency, :restrictions, :hours_of_operation, :address_id, :contact_name, :contact_phone, :contact_email, :services, :geographic_restrictions, :family_stipulations, :faith_based, :is_active, :general_information)
+      params.require(:agency).permit(:frequency,
+                                     :restrictions,
+                                     :hours_of_operation,
+                                     :address_id,
+                                     :contact_name,
+                                     :contact_phone,
+                                     :contact_email,
+                                     :services,
+                                     :geographic_restrictions,
+                                     :family_stipulations,
+                                     :faith_based,
+                                     :is_active,
+                                     :general_information,
+                                     address_attributes: [:id, :street_line_1, :street_line_2, :city, :state, :zip])
     end
 end
