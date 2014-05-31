@@ -1,74 +1,120 @@
-<%= image_tag("acfb.png") %>
-<h1><%= @agency.name %></h1>
+<style type="text/css">
+  #agency_home {
+    background: url("https://maps.google.com/maps/api/staticmap?&zoom=10&scale=4&size=1170x150&sensor=false&zoom=12&markers=<%= @agency.address.latitude %>%2C<%= @agency.address.longitude %>")
+  }
+</style>
 
-<%= link_to "Volunteer", new_agency_volunteer_path(@agency), :class => "btn btn-primary btn-lg" %>
-<p>
-  <strong>Restrictions:</strong>
-  <%= @agency.restrictions %>
-</p>
-
-<%= image_tag @agency.address.  map %>
-
-<% @agency.updates.order("created_at desc").each do |update| %>
-  <div class="update_box">
-    <%= update.content %><br>
-    <span class="text-muted"><em><small><%= distance_of_time_in_words(Time.now, update.created_at) %> ago</small></em></span><br>
-  </div>
+<%= content_for :agency_header do %>
+  <section id="agency_home">
+  </section>
 <% end %>
-<p>
-  <strong>Hours of operation:</strong>
-  <%= @agency.hours_of_operation %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <pre><%= @agency.address.to_s %></pre>
-</p>
+<div class="container">
+  <div class="agency_info">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="agency_logo"><%= image_tag("#{@agency.photo}") %></div>
+      </div>
+      <div class="col-sm-9">
+        <h1 class="agency_name"><%= @agency.name %></h1>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Contact name:</strong>
-  <%= @agency.contact_name %>
-</p>
+  <% if notice %><div class="alert alert-success"><%= notice %></div><% end %>
+  <% if alert %><div class="alert alert-danger"><%= alert %></div><% end %>
 
-<p>
-  <strong>Contact phone:</strong>
-  <%= @agency.contact_phone %>
-</p>
+  <div class="agency_actions">
+    <div class="row">
+      <div class="col-md-4">
+        <%= link_to "Need Help?", "", :class => "agency_action_btn btn btn-primary btn-block btn-lg" %>
+      </div>
+      <div class="col-md-4">
+        <%= link_to "Volunteer", new_agency_volunteer_path(@agency), :class => "agency_action_btn btn btn-primary btn-block btn-lg" %>
+      </div>
+      <div class="col-md-4">
+        <%= link_to "Donate", "", :class => "agency_action_btn btn btn-primary btn-block btn-lg" %>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Contact email:</strong>
-  <%= @agency.contact_email %>
-</p>
+  <hr>
 
-<p>
-  <strong>Services:</strong>
-  <%= @agency.services.map {|s| s.name}.join(", ") %>
-</p>
+  <div class="row agency_contact">
+    <div class="col-md-6">
+      <div class="row background_white">
+        <div class="col-md-6">
+          <h2>Contact</h2>
+            <p>
+              <div class="glyphicon glyphicon-phone"></div>
+              <%= number_to_phone(@agency.contact_phone) %>
+            </p>
+            <p>
+              <div class="glyphicon glyphicon-user"></div>
+              <%= @agency.contact_name %>
+            </p>
 
-<p>
-  <strong>Geographic restrictions:</strong>
-  <%= @agency.geographic_restrictions %>
-</p>
+            <p>
+              <div class="glyphicon glyphicon-envelope"></div>
+              <%= @agency.contact_email %>
+            </p>
 
-<p>
-  <strong>Family stipulations:</strong>
-  <%= @agency.family_stipulations %>
-</p>
+            <p>
+              <pre><%= @agency.address.to_s %></pre>
+            </p>
+        </div>
+        <div class="col-md-6">
+          <% if @agency.hours_of_operation.present? %>
+            <p>
+              <h2>Hours of Operation</h2>
+              <%= @agency.hours_of_operation %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <% if @agency.services %>
+        <p>
+          <h2>Services</h2>
+          <%= @agency.services.map {|s| s.name}.join(", ") %>
+        </p>
+      <% end %>
+      <% if @agency.restrictions.present? %>
+        <p>
+          <strong>Restrictions:</strong>
+          <%= @agency.restrictions %>
+        </p>
+      <% end %>
+      <% if @agency.geographic_restrictions.present? %>
+        <p>
+          <strong>Geographic restrictions:</strong>
+          <%= @agency.geographic_restrictions %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 
-<p>
-  <strong>Faith based:</strong>
-  <%= @agency.faith_based %>
-</p>
+  <hr>
 
-<p>
-  <strong>Is active:</strong>
-  <%= @agency.is_active %>
-</p>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>About <%= @agency.name %></h2>
+      <%= @agency.description %>
 
-<p>
-  <strong>General information:</strong>
-  <%= @agency.general_information %>
-</p>
-
-<%= link_to 'Edit', edit_agency_path(@agency) %> |
-<%= link_to 'Back', agencies_path %>
+      <h2>General Info</h2>
+      <%= @agency.general_information %>
+    </div>
+    <div class="col-md-4">
+      <h2>Updates</h2>
+      <br>
+      <% @agency.updates.order("created_at desc").each do |update| %>
+        <div class="update_box">
+          <%= update.content %><br>
+          <span class="text-muted"><em><small><%= distance_of_time_in_words(Time.now, update.created_at) %> ago</small></em></span><br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+</div>

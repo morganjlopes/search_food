@@ -16,7 +16,6 @@ class UpdatesController < ApplicationController
 
   # GET /updates/new
   def new
-    _ensure_user_can_edit(@update)
     @update = @agency_from_url.updates.new
   end
 
@@ -28,7 +27,7 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
-    _ensure_user_can_edit(@update)
+    
     @update = @agency_from_url.updates.new(update_params)
     @update.user = current_user
 

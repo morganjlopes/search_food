@@ -12,6 +12,7 @@ class AgenciesController < ApplicationController
   # GET /agencies/1
   # GET /agencies/1.json
   def show
+    @full_width = true
   end
 
   # GET /agencies/new
@@ -83,7 +84,9 @@ class AgenciesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def agency_params
       params.require(:agency).permit(:name,
-                                     :agycode, 
+                                     :agycode,
+                                     :photo,
+                                     :description,
                                      :restrictions,
                                      :hours_of_operation,
                                      :address_id,

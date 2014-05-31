@@ -5,6 +5,8 @@
       <%= f.input :agycode, :label => "Agency Code" %>  
     <% end %>
     <%= f.input :name %>
+    <%= f.input :photo %>
+    <%= f.input :description %>
       <div id="address_section">
         <%= f.association :address do |a| %>
           <%= a.input :street_line_1, :placeholder => "123 Main Street" %>
