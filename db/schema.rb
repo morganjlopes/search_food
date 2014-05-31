@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531023722) do
+ActiveRecord::Schema.define(version: 20140531032835) do
 
   create_table "addresses", force: true do |t|
     t.string   "name"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20140531023722) do
     t.boolean  "is_active"
     t.text     "general_information"
     t.boolean  "acfb_certified"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "volunteers", force: true do |t|
+    t.string   "name"
+    t.date     "yob"
+    t.string   "phone"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
