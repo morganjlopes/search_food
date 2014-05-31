@@ -1,6 +1,7 @@
 class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
   before_action :_load_agency_from_url
+  before_action :authenticate_user!, :except => [:new, :create]
 
   # GET /volunteers
   # GET /volunteers.json

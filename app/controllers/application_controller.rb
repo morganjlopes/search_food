@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
     	@agency_from_url = Agency.friendly.find(params[:agency_id])
     end
   end
+
+  def _ensure_user_can_edit(model)
+    unless model.users.where(:id => current_user.id).present?
+      raise "You don't have permission"
+    end
+  end
 end

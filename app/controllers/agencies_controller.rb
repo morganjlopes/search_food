@@ -1,11 +1,12 @@
 class AgenciesController < ApplicationController
   before_action :set_agency, only: [:show, :edit, :update, :destroy]
   before_action :_load_agency_from_url
+  before_action :authenticate_user!, :except => [:show]
 
   # GET /agencies
   # GET /agencies.json
   def index
-    @agencies = Agency.all
+    @agencies = current_user.agencies.all
   end
 
   # GET /agencies/1
@@ -22,12 +23,18 @@ class AgenciesController < ApplicationController
 
   # GET /agencies/1/edit
   def edit
+    _ensure_user_can_edit(@agency)
   end
 
   # POST /agencies
   # POST /agencies.json
   def create
     @agency = Agency.new(agency_params)
+
+    @manager        = Management.new
+    @manager.user   = current_user
+    @manager.agency = @agency
+    @manager.save
 
     respond_to do |format|
       if @agency.save
@@ -44,6 +51,7 @@ class AgenciesController < ApplicationController
   # PATCH/PUT /agencies/1
   # PATCH/PUT /agencies/1.json
   def update
+    _ensure_user_can_edit(@agency)
     respond_to do |format|
       if @agency.update(agency_params)
         format.html { redirect_to @agency, notice: 'Agency was successfully updated.' }
@@ -58,6 +66,7 @@ class AgenciesController < ApplicationController
   # DELETE /agencies/1
   # DELETE /agencies/1.json
   def destroy
+    _ensure_user_can_edit(@agency)
     @agency.destroy
     respond_to do |format|
       format.html { redirect_to agencies_url, notice: 'Agency was successfully destroyed.' }

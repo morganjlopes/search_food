@@ -1,10 +1,12 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
   before_action :_load_agency_from_url
+  before_action :authenticate_user!
 
   # GET /updates
   # GET /updates.json
   def index
+    _ensure_user_can_edit(@update)
     @updates = @agency_from_url.updates.all
   end
 
@@ -15,17 +17,21 @@ class UpdatesController < ApplicationController
 
   # GET /updates/new
   def new
+    _ensure_user_can_edit(@update)
     @update = @agency_from_url.updates.new
   end
 
   # GET /updates/1/edit
   def edit
+    _ensure_user_can_edit(@update)
   end
 
   # POST /updates
   # POST /updates.json
   def create
+    _ensure_user_can_edit(@update)
     @update = @agency_from_url.updates.new(update_params)
+    @update.user = current_user
 
     respond_to do |format|
       if @update.save
@@ -41,6 +47,7 @@ class UpdatesController < ApplicationController
   # PATCH/PUT /updates/1
   # PATCH/PUT /updates/1.json
   def update
+    _ensure_user_can_edit(@update)
     respond_to do |format|
       if @update.update(update_params)
         format.html { redirect_to agency_path(@agency_from_url), notice: 'Update was successfully updated.' }
@@ -55,6 +62,7 @@ class UpdatesController < ApplicationController
   # DELETE /updates/1
   # DELETE /updates/1.json
   def destroy
+    _ensure_user_can_edit(@update)
     @update.destroy
     respond_to do |format|
       format.html { redirect_to updates_url, notice: 'Update was successfully destroyed.' }

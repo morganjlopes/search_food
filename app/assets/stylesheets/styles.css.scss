@@ -46,6 +46,9 @@ textarea {
 	max-width: 500px;
 	margin-left: auto;
 	margin-right: auto;
+	&.user {
+		max-width: 250px;
+	}
 }
 
 .update_box {

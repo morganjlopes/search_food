@@ -9,6 +9,8 @@ class Agency < ActiveRecord::Base
   has_many :volunteers
   has_many :agent_services
   has_many :services, :through => :agent_services
+  has_many :managements
+  has_many :users, :through => :managements
 
 	validates_presence_of :name,
 												:hours_of_operation,

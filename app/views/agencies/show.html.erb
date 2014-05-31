@@ -11,8 +11,8 @@
 
 <% @agency.updates.order("created_at desc").each do |update| %>
   <div class="update_box">
-    <%= update.content %>
-    <%= distance_of_time_in_words(Time.now, update.created_at) %> ago
+    <%= update.content %><br>
+    <span class="text-muted"><em><small><%= distance_of_time_in_words(Time.now, update.created_at) %> ago</small></em></span><br>
   </div>
 <% end %>
 <p>
