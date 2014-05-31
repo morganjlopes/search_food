@@ -1,0 +1,49 @@
+<h1>Listing agencies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Frequency</th>
+      <th>Restrictions</th>
+      <th>Hours of operation</th>
+      <th>Address</th>
+      <th>Contact name</th>
+      <th>Contact phone</th>
+      <th>Contact email</th>
+      <th>Services</th>
+      <th>Geographic restrictions</th>
+      <th>Family stipulations</th>
+      <th>Faith based</th>
+      <th>Is active</th>
+      <th>General information</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agencies.each do |agency| %>
+      <tr>
+        <td><%= agency.frequency %></td>
+        <td><%= agency.restrictions %></td>
+        <td><%= agency.hours_of_operation %></td>
+        <td><%= agency.address_id %></td>
+        <td><%= agency.contact_name %></td>
+        <td><%= agency.contact_phone %></td>
+        <td><%= agency.contact_email %></td>
+        <td><%= agency.services %></td>
+        <td><%= agency.geographic_restrictions %></td>
+        <td><%= agency.family_stipulations %></td>
+        <td><%= agency.faith_based %></td>
+        <td><%= agency.is_active %></td>
+        <td><%= agency.general_information %></td>
+        <td><%= link_to 'Show', agency %></td>
+        <td><%= link_to 'Edit', edit_agency_path(agency) %></td>
+        <td><%= link_to 'Destroy', agency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agency', new_agency_path %>

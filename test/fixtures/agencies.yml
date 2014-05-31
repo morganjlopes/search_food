@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  frequency: MyText
+  restrictions: MyText
+  hours_of_operation: MyText
+  address_id: 1
+  contact_name: MyString
+  contact_phone: MyString
+  contact_email: MyString
+  services: 1
+  geographic_restrictions: MyText
+  family_stipulations: 1
+  faith_based: false
+  is_active: false
+  general_information: MyText
+
+two:
+  frequency: MyText
+  restrictions: MyText
+  hours_of_operation: MyText
+  address_id: 1
+  contact_name: MyString
+  contact_phone: MyString
+  contact_email: MyString
+  services: 1
+  geographic_restrictions: MyText
+  family_stipulations: 1
+  faith_based: false
+  is_active: false
+  general_information: MyText

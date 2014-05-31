@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @agency.frequency %>
+</p>
+
+<p>
+  <strong>Restrictions:</strong>
+  <%= @agency.restrictions %>
+</p>
+
+<p>
+  <strong>Hours of operation:</strong>
+  <%= @agency.hours_of_operation %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @agency.address_id %>
+</p>
+
+<p>
+  <strong>Contact name:</strong>
+  <%= @agency.contact_name %>
+</p>
+
+<p>
+  <strong>Contact phone:</strong>
+  <%= @agency.contact_phone %>
+</p>
+
+<p>
+  <strong>Contact email:</strong>
+  <%= @agency.contact_email %>
+</p>
+
+<p>
+  <strong>Services:</strong>
+  <%= @agency.services %>
+</p>
+
+<p>
+  <strong>Geographic restrictions:</strong>
+  <%= @agency.geographic_restrictions %>
+</p>
+
+<p>
+  <strong>Family stipulations:</strong>
+  <%= @agency.family_stipulations %>
+</p>
+
+<p>
+  <strong>Faith based:</strong>
+  <%= @agency.faith_based %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @agency.is_active %>
+</p>
+
+<p>
+  <strong>General information:</strong>
+  <%= @agency.general_information %>
+</p>
+
+<%= link_to 'Edit', edit_agency_path(@agency) %> |
+<%= link_to 'Back', agencies_path %>

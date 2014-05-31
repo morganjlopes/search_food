@@ -1,0 +1,69 @@
+<%= form_for(@agency) do |f| %>
+  <% if @agency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agency.errors.count, "error") %> prohibited this agency from being saved:</h2>
+
+      <ul>
+      <% @agency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :frequency %><br>
+    <%= f.text_area :frequency %>
+  </div>
+  <div class="field">
+    <%= f.label :restrictions %><br>
+    <%= f.text_area :restrictions %>
+  </div>
+  <div class="field">
+    <%= f.label :hours_of_operation %><br>
+    <%= f.text_area :hours_of_operation %>
+  </div>
+  <div class="field">
+    <%= f.label :address_id %><br>
+    <%= f.number_field :address_id %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_name %><br>
+    <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_phone %><br>
+    <%= f.text_field :contact_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_email %><br>
+    <%= f.text_field :contact_email %>
+  </div>
+  <div class="field">
+    <%= f.label :services %><br>
+    <%= f.number_field :services %>
+  </div>
+  <div class="field">
+    <%= f.label :geographic_restrictions %><br>
+    <%= f.text_area :geographic_restrictions %>
+  </div>
+  <div class="field">
+    <%= f.label :family_stipulations %><br>
+    <%= f.number_field :family_stipulations %>
+  </div>
+  <div class="field">
+    <%= f.label :faith_based %><br>
+    <%= f.check_box :faith_based %>
+  </div>
+  <div class="field">
+    <%= f.label :is_active %><br>
+    <%= f.check_box :is_active %>
+  </div>
+  <div class="field">
+    <%= f.label :general_information %><br>
+    <%= f.text_area :general_information %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

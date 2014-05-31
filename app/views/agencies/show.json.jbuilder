@@ -1,0 +1,1 @@
+json.extract! @agency, :id, :frequency, :restrictions, :hours_of_operation, :address_id, :contact_name, :contact_phone, :contact_email, :services, :geographic_restrictions, :family_stipulations, :faith_based, :is_active, :general_information, :created_at, :updated_at
