@@ -151,6 +151,16 @@ textarea {
 	}
 }
 
+.dropdown-menu > li > a {
+	display: block;
+	padding: 13px 20px;
+	clear: both;
+	font-weight: normal;
+	line-height: 1.42857143;
+	color: #333;
+	white-space: nowrap;
+}
+
 .btn.btn-primary.btn-block.btn-lg.agency_action_btn {
 	padding: 15px;
 	font-size: 20px;

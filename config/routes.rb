@@ -10,6 +10,8 @@ SearchFood::Application.routes.draw do
     
     resources :updates
 
+    resources :clients
+
   end
 
   root 'pages#home'

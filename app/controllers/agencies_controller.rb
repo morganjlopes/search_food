@@ -15,6 +15,7 @@ class AgenciesController < ApplicationController
     @full_width = true
 
     @volunteer = @agency.volunteers.new
+    @client = @agency.clients.new
   end
 
   # GET /agencies/new
