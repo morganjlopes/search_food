@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def _load_agency_from_url
-    @agency_from_url = Agency.friendly.find(params[:agency_id])
+    if @agency
+    	@agency_from_url = @agency
+    elsif params[:agency_id]
+    	@agency_from_url = Agency.friendly.find(params[:agency_id])
+    end
   end
 end

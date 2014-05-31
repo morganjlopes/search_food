@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  
+
   get 'pages/home'
 
   resources :services
 
   resources :agencies do
+    
     resources :volunteers
+    
+    resources :updates
+
   end
 
   root 'agencies#index'

@@ -1,5 +1,6 @@
 class AgenciesController < ApplicationController
   before_action :set_agency, only: [:show, :edit, :update, :destroy]
+  before_action :_load_agency_from_url
 
   # GET /agencies
   # GET /agencies.json

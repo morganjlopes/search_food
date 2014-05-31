@@ -9,6 +9,12 @@
 
 <%= image_tag @agency.address.  map %>
 
+<% @agency.updates.order("created_at desc").each do |update| %>
+  <div class="update_box">
+    <%= update.content %>
+    <%= distance_of_time_in_words(Time.now, update.created_at) %> ago
+  </div>
+<% end %>
 <p>
   <strong>Hours of operation:</strong>
   <%= @agency.hours_of_operation %>

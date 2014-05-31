@@ -5,8 +5,8 @@ class Agency < ActiveRecord::Base
 	belongs_to :address
 	accepts_nested_attributes_for :address
 
+  has_many :updates
   has_many :volunteers
-
   has_many :agent_services
   has_many :services, :through => :agent_services
 

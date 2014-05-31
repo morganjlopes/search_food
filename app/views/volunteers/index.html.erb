@@ -1,4 +1,8 @@
-<h1>Volunteers</h1>
+<h1><%= @agency_from_url.name %> Volunteers</h1>
+
+<%= link_to 'New Volunteer', new_agency_volunteer_path(@agency_from_url), :class => "btn btn-primary" %>
+
+<hr>
 
 <table class= "table">
   <thead>
@@ -24,7 +28,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Volunteer', new_agency_volunteer_path(@agency_from_url) %>

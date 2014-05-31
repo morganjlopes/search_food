@@ -1,0 +1,33 @@
+<%= simple_form_for([@agency_from_url, @update]) do |f| %>
+	<div class="form_wrapper">
+	  <%= f.error_notification %>
+
+	  <div class="form-inputs">
+	    <%= f.input :content %>
+	    <div class="text-right"><span class="countdown"></span></div>
+	  </div>
+
+	  <div class="form-actions">
+	    <%= f.button :submit, :class => "btn btn-primary" %>
+	  </div>
+	</div>
+<% end %>
+
+<script type="text/javascript">
+  var updateCountdown;
+
+  updateCountdown = function() {
+    var remaining;
+    remaining = 140 - jQuery("#update_content").val().length;
+    jQuery(".countdown").text(remaining + "");
+  };
+
+  jQuery(document).ready(function($) {
+    updateCountdown();
+    $("#update_content").change(updateCountdown);
+    $("#update_content").keyup(updateCountdown);
+    if (jQuery("#update_content").val().length === 0) {
+      jQuery(".countdown").addClass("negative");
+    }
+  });
+</script>
