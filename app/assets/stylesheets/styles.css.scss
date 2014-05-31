@@ -7,6 +7,10 @@ h1 {
 	font-weight: 600;
 }
 
+.full_width {
+	width: 100%;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -110,4 +114,46 @@ textarea {
 
 .background_white {
 	background-color: white;
+}
+
+#home_header {
+	background-color: #4DBD90;
+	text-align: center;
+	padding: 30px;
+	color: #FFF;
+}
+
+.united_way {
+	background-color: #E2E2E2;
+	padding: 70px;
+	margin-bottom: -50px;
+	margin-top: 40px;
+	h2 {
+		margin-top:0px;
+	}
+}
+
+.search_input {
+	font-size: 25px;
+	border-radius: 4px;
+	border: none;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding: 10px 20px;
+	color: #000;
+}
+
+.search_results {
+	margin: 50px 0px;
+}
+
+.agency_search_result {
+	background-color: #E2E2E2;
+	padding: 20px;
+	margin-bottom: 10px;
+	width: 100%;
+	h2 {
+		margin-top: 0px;
+		font-size: 22px;
+	}
 }

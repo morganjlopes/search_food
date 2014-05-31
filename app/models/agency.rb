@@ -22,6 +22,16 @@ class Agency < ActiveRecord::Base
   SERVICES_FEEDING      = 2
   SERVICES_COUNSELING   = 3
 
+  def self.all_agencies
+    states = ""
+    self.all.each do |l|
+      states += "&markers=color:0x4DBD90%7Clabel:#{l.address.city[0]}%7C#{l.address.latitude},#{l.address.longitude}"
+    end
+    states
+
+    map = "http://maps.googleapis.com/maps/api/staticmap?center=atlanta,GA&zoom=8&scale=4&size=1000x800&maptype=roadmap#{states}&sensor=false&style=feature:landscape%7Celement:geometry.fill%7Ccolor:0xffffff%7Cvisibility:on&style=feature:water%7Celement:geometry.fill%7Ccolor:0xE6E6E6%7Cvisibility:on"
+  end
+
 	def self.services
     {
       SERVICES_PANTRY     => 'Food Pantry',
