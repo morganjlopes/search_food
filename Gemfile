@@ -29,6 +29,11 @@ gem 'spring',        group: :development
 
 gem 'friendly_id', '~> 5.0.0'
 
+group :development do
+	# Use sqlite3 as the database for Active Record
+	gem "letter_opener"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

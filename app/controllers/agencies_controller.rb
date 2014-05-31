@@ -44,6 +44,7 @@ class AgenciesController < ApplicationController
   def update
     respond_to do |format|
       if @agency.update(agency_params)
+        AdminMailer.new_agency(@agency).deliver
         format.html { redirect_to @agency, notice: 'Agency was successfully updated.' }
         format.json { render :show, status: :ok, location: @agency }
       else
