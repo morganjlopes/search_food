@@ -6,7 +6,6 @@ class UpdatesController < ApplicationController
   # GET /updates
   # GET /updates.json
   def index
-    _ensure_user_can_edit(@update)
     @updates = @agency_from_url.updates.all
   end
 
