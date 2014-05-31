@@ -17,7 +17,7 @@ gem 'devise'
 
 gem "geocoder"
 
-group :development do
+group :production do
 	gem 'heroku'
 	gem 'pg'
 	gem 'unicorn'
