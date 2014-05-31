@@ -1,4 +1,4 @@
-<h1>Listing volunteers</h1>
+<h1>Volunteers</h1>
 
 <table class= "table">
   <thead>
@@ -15,12 +15,11 @@
     <% @volunteers.each do |volunteer| %>
       <tr>
         <td><%= volunteer.name %></td>
-        <td><%= volunteer.yob %></td>
+        <td><%= (Time.now.year - volunteer.yob.year) %></td>
         <td><%= volunteer.phone %></td>
         <td><%= volunteer.email %></td>
-        <td><%= link_to 'Show', volunteer %></td>
-        <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
-        <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', agency_volunteer_path(volunteer.agency, volunteer) %></td>
+        <td><%= link_to 'Edit', edit_agency_volunteer_path(volunteer.agency, volunteer) %></td>
       </tr>
     <% end %>
   </tbody>
