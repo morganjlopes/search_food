@@ -30,6 +30,7 @@ class VolunteersController < ApplicationController
 
     respond_to do |format|
       if @volunteer.save
+        AgencyMailer.new_volunteer(@volunteer).deliver
         format.html { redirect_to agency_path(@volunteer.agency), notice: 'Thank you for your interest in volunteering. Our Agency supervisor will contact you soon.' }
         format.json { render :show, status: :created, location: @volunteer }
       else

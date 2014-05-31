@@ -27,13 +27,13 @@
   <div class="agency_actions">
     <div class="row">
       <div class="col-md-4">
-        <%= link_to "Need Help?", "", :class => "agency_action_btn btn btn-primary btn-block btn-lg" %>
+        <%= link_to "Need Help?", "", :class => "btn btn-primary btn-block btn-lg agency_action_btn" %>
       </div>
       <div class="col-md-4">
-        <%= link_to "Volunteer", new_agency_volunteer_path(@agency), :class => "agency_action_btn btn btn-primary btn-block btn-lg" %>
+        <%= link_to "Volunteer", "", :class => "btn btn-primary btn-block btn-lg agency_action_btn", "data-toggle" => "modal", "data-target" => "#volunteerModal" %>
       </div>
       <div class="col-md-4">
-        <%= link_to "Donate", "", :class => "agency_action_btn btn btn-primary btn-block btn-lg" %>
+        <%= link_to "Donate", "", :class => "btn btn-primary btn-block btn-lg agency_action_btn" %>
       </div>
     </div>
   </div>
@@ -117,4 +117,32 @@
     </div>
   </div>
   <hr>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="volunteerModal" tabindex="-1" role="dialog" aria-labelledby="volunteerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= simple_form_for([@agency_from_url, @volunteer]) do |f| %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="volunteerModalLabel">Become a Volunteer</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form_wrapper">
+            <%= f.input :name %>
+            <%= f.input :yob, :label => "Birth Year", :as => :date,
+                :start_year => Time.now.year-100, :end_year => Time.now.year,
+                :order => [:year] %>
+            <%= f.input :phone %>
+            <%= f.input :email %>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <%= f.submit :class => "btn btn-primary btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

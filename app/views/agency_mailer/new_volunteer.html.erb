@@ -1,0 +1,17 @@
+<p>Hey,</p>
+
+<p>
+  A new volunteer has registered. <%= link_to "View Your Volunteers", agency_volunteers_url(@volunteer.agency) %>
+</p>
+
+<p>
+
+<strong>Name</strong> <%= @volunteer.name %><br>
+<strong>Birth Year</strong> <%= @volunteer.yob %><br>
+<strong>Phone</strong> <%= @volunteer.phone %><br>
+<strong>Email</strong> <%= @volunteer.email %><br>
+<strong>Created</strong> <%= @volunteer.created_at.strftime("%r") %>
+</p>
+
+<p>Keep 'em Fed,<br>
+<p>Atlanta Community Food Bank</p>

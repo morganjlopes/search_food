@@ -13,6 +13,8 @@ class AgenciesController < ApplicationController
   # GET /agencies/1.json
   def show
     @full_width = true
+
+    @volunteer = @agency.volunteers.new
   end
 
   # GET /agencies/new
