@@ -1,30 +1,36 @@
 <%= simple_form_for(@agency) do |f| %>
+  <div class="form_wrapper">
+    <%= f.input :name %>
+      <div id="address_section">
+        <%= f.association :address do |a| %>
+          <%= a.input :street_line_1, :placeholder => "123 Main Street" %>
+          <%= a.input :street_line_2 %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= a.input :city, :placeholder => "Atlanta" %>
+            </div>
+            <div class="col-md-4">
+              <%= a.input :state, collection: (Address.states), :prompt => 'State...' %>
+            </div>
+            <div class="col-md-4">
+              <%= a.input :zip, :placeholder => "30303" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
 
-  <%= f.input :name %>
-  <div id="address_section">
-    <%= f.association :address do |a| %>
-      <%= a.input :street_line_1, :placeholder => "123 Main Street" %>
-      <%= a.input :street_line_2 %>
-      <%= a.input :city, :placeholder => "Atlanta" %>
-      <%= a.input :state, collection: (Address.states), :prompt => 'State...' %>
-      <%= a.input :zip, :placeholder => "30303" %>
-    <% end %>
+      <%= f.input :restrictions %>
+      <%= f.input :hours_of_operation %>
+      <%= f.input :contact_name %>
+      <%= f.input :contact_phone %>
+      <%= f.input :contact_email %>
+      <%= f.input :services, collection: (Agency.services) %>
+      <%= f.input :geographic_restrictions %>
+      <%= f.input :family_stipulations %>
+      <%= f.input :faith_based %>
+      <%= f.input :general_information %>
+      <div class="actions">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
   </div>
-
-  <%= f.input :frequency %>
-  <%= f.input :restrictions %>
-  <%= f.input :hours_of_operation %>
-  <%= f.input :address_id %>
-  <%= f.input :contact_name %>
-  <%= f.input :contact_phone %>
-  <%= f.input :contact_email %>
-  <%= f.input :services %>
-  <%= f.input :geographic_restrictions %>
-  <%= f.input :family_stipulations %>
-  <%= f.input :faith_based %>
-  <%= f.input :general_information %>
-  <div class="actions">
-    <%= f.submit :class => "btn btn-primary" %>
-  </div>
-
 <% end %>
