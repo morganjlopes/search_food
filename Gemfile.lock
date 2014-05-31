@@ -49,11 +49,10 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     excon (0.34.0)
-    execjs (1.2.4)
-      multi_json (~> 1.0)
-    friendly_id (5.0.3)
+    execjs (2.1.0)
+    friendly_id (5.0.4)
       activerecord (>= 4.0.0)
-    geocoder (1.2.0)
+    geocoder (1.2.1)
     heroku (3.8.2)
       heroku-api (~> 0.3.17)
       launchy (>= 0.3.2)
@@ -175,7 +174,6 @@ DEPENDENCIES
   activerecord-postgresql-adapter
   coffee-rails (~> 4.0.0)
   devise
-  execjs (= 1.2.4)
   friendly_id (~> 5.0.0)
   geocoder
   heroku
