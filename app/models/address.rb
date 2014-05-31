@@ -1,10 +1,24 @@
 class Address < ActiveRecord::Base
+
+  # Geocoode to grab lat and long
+  geocoded_by :geo_address
+  
+  after_validation :geocode
+
+  def geo_address
+    "#{street_line_1} #{street_line_2} #{city}, #{state} #{zip}"
+  end
+
   def to_s
     [
       street_line_1,
       street_line_2,
       "#{city}, #{state} #{zip}"
     ].reject(&:empty?).join("\n")
+  end
+
+  def map
+    "https://maps.google.com/maps/api/staticmap?&zoom=10&scale=4&size=1170x300&sensor=false&zoom=12&markers=#{latitude}%2C#{longitude}"
   end
   
 	def self.states

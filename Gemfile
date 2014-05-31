@@ -13,6 +13,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'execjs', '1.2.4'
 gem 'tzinfo-data'
 gem 'simple_form'
+
+gem "geocoder"
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
