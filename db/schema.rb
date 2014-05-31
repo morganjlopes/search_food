@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531031626) do
+ActiveRecord::Schema.define(version: 20140531104051) do
 
   create_table "addresses", force: true do |t|
     t.string   "street_line_1"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20140531031626) do
   end
 
   create_table "agencies", force: true do |t|
-    t.text     "frequency"
     t.text     "restrictions"
     t.text     "hours_of_operation"
     t.integer  "address_id"
