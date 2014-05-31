@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :agencies
+  
+  resources :agencies do
+    resources :volunteers
+  end
 
   root 'agencies#index'
   # The priority is based upon order of creation: first created -> highest priority.

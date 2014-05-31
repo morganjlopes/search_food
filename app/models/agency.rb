@@ -5,6 +5,8 @@ class Agency < ActiveRecord::Base
 	belongs_to :address
 	accepts_nested_attributes_for :address
 
+  has_many :volunteers
+
 	validates_presence_of :name,
 												:hours_of_operation,
 												:contact_name,

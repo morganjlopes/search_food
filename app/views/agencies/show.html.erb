@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <%= image_tag("acfb.png") %>
 <h1><%= @agency.name %></h1>
 
+<%= link_to "Volunteer", new_agency_volunteer_path(@agency), :class => "btn btn-primary btn-lg" %>
 <p>
   <strong>Restrictions:</strong>
   <%= @agency.restrictions %>
@@ -15,7 +14,7 @@
 
 <p>
   <strong>Address:</strong>
-  <%= @agency.address_id %>
+  <pre><%= @agency.address.to_s %></pre>
 </p>
 
 <p>

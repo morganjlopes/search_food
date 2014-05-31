@@ -1,4 +1,12 @@
 class Address < ActiveRecord::Base
+  def to_s
+    [
+      street_line_1,
+      street_line_2,
+      "#{city}, #{state} #{zip}"
+    ].reject(&:empty?).join("\n")
+  end
+  
 	def self.states
     [
       [ 'Alabama'             , 'AL' ],

@@ -1,0 +1,14 @@
+<%= simple_form_for([@agency_from_url, @volunteer]) do |f| %>
+	<div class="form_wrapper">
+	  <%= f.input :name %>
+	  <%= f.input :yob, :label => "Birth Year", :as => :date,
+        :start_year => Time.now.year-100, :end_year => Time.now.year,
+        :order => [:year] %>
+	  <%= f.input :phone %>
+	  <%= f.input :email %>
+	 
+	  <div class="actions">
+	    <%= f.submit :class => "btn btn-primary" %>
+	  </div>
+	</div>
+<% end %>
