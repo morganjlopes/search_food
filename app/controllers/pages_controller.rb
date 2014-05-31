@@ -3,7 +3,9 @@ class PagesController < ApplicationController
   	@full_width = true
 
   	if params[:search].present?
-	    @agencies = Address.near("#{params[:search]}")
+	    @agencies = Agency.select do |a|
+	    	a.address.zip == params[:search]
+	    end
 	  else
 	    @agencies = Agency.all
 	  end

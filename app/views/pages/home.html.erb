@@ -1,14 +1,15 @@
 <section id="home_header">
   <h1 class="main-heading">Find Food Help</h1>
-  <p class="main-subtitle">We at the Atlanta Community Food Bank Partner with <%= Agency.all.count %> food kitchens and pantries around Metro Atlanta. Search below for a location near you.</p>
+  <p class="main-subtitle">We at the Atlanta Community Food Bank Partner<br>with <%= Agency.all.count %> food kitchens and pantries around Metro Atlanta.<br>Enter your zipcode below to find a location near you.</p>
 
   <%= form_tag root_url, :method => :get do %>
-    <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search Near", :name => nil %>
-    </p>
+    <div class="input-group">
+      <%= text_field_tag :search, params[:search], :class => "search_input form-control", :placeholder => "zipcode" %>
+      <span class="input-group-btn">
+        <%= submit_tag "Find Food", :name => nil, :class => "btn btn-default" %>
+      </span>
+    </div><!-- /input-group -->
   <% end %>
-  <input class="search_input">
 </section>
 
 <div class="container">
@@ -23,13 +24,15 @@
           <% @agencies.last(4).each do |agency| %>
             <tr>
               <td>
-                <div class="agency_search_result">
-                  <h2><%= agency.name %></h2>
-                  <%= agency.address.street_line_1 %>
-                  <%= agency.address.street_line_2 if agency.address.street_line_2 %><br>
-                  <%= agency.address.city %>, <%= agency.address.state %> <%= agency.address.zip %><br>
-                  <strong>Phone</strong> <%= agency.contact_phone %>
-                </div>
+                <%= link_to agency_path(agency) do %>
+                  <div class="agency_search_result">
+                    <h2><%= agency.name %></h2>
+                    <%= agency.address.street_line_1 %>
+                    <%= agency.address.street_line_2 if agency.address.street_line_2 %><br>
+                    <%= agency.address.city %>, <%= agency.address.state %> <%= agency.address.zip %><br>
+                    <strong>Phone</strong> <%= agency.contact_phone %>
+                  </div>
+                <% end %>
               </td>
             </tr>
           <% end %>

@@ -17,6 +17,10 @@
       </div>
       <div class="col-sm-9">
         <h1 class="agency_name"><%= @agency.name %></h1>
+        <span class="agency_address">
+          <%= @agency.address.street_line_1 %> <%= @agency.address.street_line_2 %><br>
+          <%= @agency.address.city %>,  <%= @agency.address.state %> <%= @agency.address.zip %>
+        </span>
       </div>
     </div>
   </div>
@@ -57,10 +61,6 @@
             <p>
               <div class="glyphicon glyphicon-envelope"></div>
               <%= @agency.contact_email %>
-            </p>
-
-            <p>
-              <pre><%= @agency.address.to_s %></pre>
             </p>
         </div>
         <div class="col-md-6">

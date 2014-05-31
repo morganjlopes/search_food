@@ -11,6 +11,49 @@ h1 {
 	width: 100%;
 }
 
+
+.navbar-default {
+	border: none;
+	.navbar-nav > li > a {
+		padding-top: 27px;
+		padding-bottom: 27px;
+	}
+}
+
+.input-group {
+	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	.search_input.form-control {
+		margin-top: 0px;
+		font-size: 25px;
+		border-radius: 4px;
+		border: none;
+		padding: 25px 20px;
+		color: #000;
+	}
+	.input-group-btn:last-child > .btn {
+		padding: 15px;
+		border: none;
+	}
+}
+
+.main-subtitle {
+	font-size: 20px;
+	max-width: 630px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 28px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.navbar-brand {
+	img {
+		max-width: 150px;
+	}
+}
+
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -91,10 +134,12 @@ textarea {
 }
 
 .agency_name {
-	background-color: rgba(239, 239, 239, 0.72);
-	padding: 10px;
-	max-width: 460px;
-	border: 1px solid;
+	margin-top: 135px;
+}
+
+.agency_address {
+	font-size: 18px;
+	line-height: 22px;
 }
 
 .agency_contact {
@@ -117,10 +162,15 @@ textarea {
 }
 
 #home_header {
-	background-color: #4DBD90;
+	h1 {
+		font-size: 45px;
+	}
+	background-color: rgba(10, 51, 112, 0.67);
 	text-align: center;
-	padding: 30px;
+	padding: 40px 10px 60px;
 	color: #FFF;
+	margin-top: -20px;
+	border-bottom: 2px solid #667;
 }
 
 .united_way {
