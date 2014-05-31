@@ -67,7 +67,7 @@
           <% if @agency.hours_of_operation.present? %>
             <p>
               <h2>Hours of Operation</h2>
-              <%= @agency.hours_of_operation %>
+              <%= @agency.hours_of_operation.html_safe %>
             </p>
           <% end %>
         </div>
@@ -83,13 +83,13 @@
       <% if @agency.restrictions.present? %>
         <p>
           <strong>Restrictions:</strong>
-          <%= @agency.restrictions %>
+          <%= @agency.restrictions.html_safe %>
         </p>
       <% end %>
       <% if @agency.geographic_restrictions.present? %>
         <p>
           <strong>Geographic restrictions:</strong>
-          <%= @agency.geographic_restrictions %>
+          <%= @agency.geographic_restrictions.html_safe %>
         </p>
       <% end %>
     </div>
@@ -100,10 +100,12 @@
   <div class="row">
     <div class="col-md-8">
       <h2>About <%= @agency.name %></h2>
-      <%= @agency.description %>
+      <%= @agency.description.html_safe %>
 
-      <h2>General Info</h2>
-      <%= @agency.general_information %>
+      <% if @agency.general_information.present? %>
+        <h2>General Info</h2>
+        <%= @agency.general_information.html_safe %>
+      <% end %>
     </div>
     <div class="col-md-4">
       <h2>Updates</h2>

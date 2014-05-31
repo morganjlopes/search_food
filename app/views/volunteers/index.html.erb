@@ -1,6 +1,8 @@
 <h1><%= @agency_from_url.name %> Volunteers</h1>
 
-<%= link_to 'New Volunteer', new_agency_volunteer_path(@agency_from_url), :class => "btn btn-primary" %>
+<div class="text-right">
+  <%= link_to 'New Volunteer', new_agency_volunteer_path(@agency_from_url), :class => "btn btn-primary" %>
+</div>
 
 <hr>
 
@@ -18,7 +20,7 @@
   <tbody>
     <% @volunteers.each do |volunteer| %>
       <tr>
-        <td><%= volunteer.name %></td>
+        <td><%= link_to volunteer.name, "mailto:#{volunteer.email}" %></td>
         <td><%= (Time.now.year - volunteer.yob.year) %></td>
         <td><%= volunteer.phone %></td>
         <td><%= volunteer.email %></td>
