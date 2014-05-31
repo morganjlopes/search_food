@@ -1,15 +1,4 @@
 <%= simple_form_for(@agency) do |f| %>
-  <% if @agency.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@agency.errors.count, "error") %> prohibited this agency from being saved:</h2>
-
-      <ul>
-      <% @agency.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div id="address_section">
     <%= f.association :address do |a| %>
@@ -22,43 +11,20 @@
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.input :frequency %>
-  </div>
-  <div class="field">
-    <%= f.input :restrictions %>
-  </div>
-  <div class="field">
-    <%= f.input :hours_of_operation %>
-  </div>
-  <div class="field">
-    <%= f.input :address_id %>
-  </div>
-  <div class="field">
-    <%= f.input :contact_name %>
-  </div>
-  <div class="field">
-    <%= f.input :contact_phone %>
-  </div>
-  <div class="field">
-    <%= f.input :contact_email %>
-  </div>
-  <div class="field">
-    <%= f.input :services %>
-  </div>
-  <div class="field">
-    <%= f.input :geographic_restrictions %>
-  </div>
-  <div class="field">
-    <%= f.input :family_stipulations %>
-  </div>
-  <div class="field">
-    <%= f.input :faith_based %>
-  </div>
-  <div class="field">
-    <%= f.input :general_information %>
-  </div>
+  <%= f.input :frequency %>
+  <%= f.input :restrictions %>
+  <%= f.input :hours_of_operation %>
+  <%= f.input :address_id %>
+  <%= f.input :contact_name %>
+  <%= f.input :contact_phone %>
+  <%= f.input :contact_email %>
+  <%= f.input :services %>
+  <%= f.input :geographic_restrictions %>
+  <%= f.input :family_stipulations %>
+  <%= f.input :faith_based %>
+  <%= f.input :general_information %>
   <div class="actions">
     <%= f.submit :class => "btn btn-primary" %>
   </div>
+  
 <% end %>
